@@ -1,0 +1,15 @@
+tf_add_unit_test(34_Input 34_Input.cpp)
+
+include(TheForgeUtils)
+determine_resources_dir("34_Input" resources_dir)
+
+# Copy textures
+add_custom_command(
+    TARGET 34_Input
+    POST_BUILD
+    COMMAND
+        ${CMAKE_COMMAND} -E copy_directory
+        ${CMAKE_SOURCE_DIR}/Examples_3/Unit_Tests/UnitTestResources/Textures/dds/input/
+        ${resources_dir}/Textures/
+    COMMENT "Copying textures..."
+)
