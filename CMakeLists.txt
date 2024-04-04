@@ -406,8 +406,10 @@ if(LINUX)
 
     set(FSL_LANGUAGES "VULKAN")
 
-    list(APPEND RENDERER_SRC Common_3/Graphics/Vulkan/Vulkan.cpp
-         Common_3/Graphics/Vulkan/VulkanRaytracing.cpp Common_3/Graphics/Vulkan/VulkanShaderReflection.cpp
+    list(APPEND RENDERER_SRC
+        Common_3/Graphics/Vulkan/Vulkan.cpp
+        Common_3/Graphics/Vulkan/VulkanRaytracing.cpp
+        Common_3/Graphics/Vulkan/VulkanShaderReflection.cpp
     )
     list(
         APPEND
@@ -421,7 +423,9 @@ if(LINUX)
         Common_3/Utilities/FileSystem/UnixFileSystem.c
         Common_3/Utilities/ThirdParty/OpenSource/zstd/decompress/huf_decompress_amd64.S
     )
-    list(APPEND GAINPUT_SRC Common_3/Application/ThirdParty/OpenSource/gainput/lib/source/hidapi/linux/hid.c)
+    list(APPEND GAINPUT_SRC
+        Common_3/Application/ThirdParty/OpenSource/gainput/lib/source/hidapi/linux/hid.c
+    )
 
     execute_process(
         COMMAND
@@ -459,7 +463,7 @@ if(WIN32)
         Common_3/OS/Windows/WindowsWindow.cpp
     )
     list(APPEND GAINPUT_SRC
-         Common_3/Application/ThirdParty/OpenSource/gainput/lib/source/hidapi/windows/hid.c
+        Common_3/Application/ThirdParty/OpenSource/gainput/lib/source/hidapi/windows/hid.c
     )
 endif()
 
@@ -486,13 +490,13 @@ if(APPLE)
         )
         list(APPEND OS_OBJCPP_SRC
             Common_3/OS/Darwin/CocoaFileSystem.mm
-             Common_3/OS/Darwin/macOSBase.mm
-             Common_3/OS/Darwin/macOSWindow.mm
+            Common_3/OS/Darwin/macOSBase.mm
+            Common_3/OS/Darwin/macOSWindow.mm
         )
         list(APPEND RENDERER_OBJCPP_SRC
             Common_3/Graphics/Metal/MetalRaytracing.mm
-             Common_3/Graphics/Metal/MetalRenderer.mm
-             Common_3/Graphics/Metal/MetalShaderReflection.mm
+            Common_3/Graphics/Metal/MetalRenderer.mm
+            Common_3/Graphics/Metal/MetalShaderReflection.mm
         )
         list(
             APPEND
