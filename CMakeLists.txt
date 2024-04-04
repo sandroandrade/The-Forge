@@ -24,105 +24,59 @@ if(BUILD_UNIT_TESTS AND NOT EXISTS ${CMAKE_SOURCE_DIR}/Art)
 endif()
 
 set(RENDERER_SRC
-    Common_3/Graphics/GPUConfig.h
-    Common_3/Graphics/Interfaces/IGraphics.h
-    Common_3/Resources/ResourceLoader/Interfaces/IResourceLoader.h
-    Common_3/Graphics/Interfaces/IShaderReflection.h
-    Common_3/Renderer/Interfaces/IVisibilityBuffer.h
+    # cmake-format: sortable
     Common_3/Game/ThirdParty/OpenSource/flecs/flecs.c
     Common_3/Game/ThirdParty/OpenSource/flecs/flecs.h
+    Common_3/Graphics/GraphicsConfig.h
+    Common_3/Graphics/Interfaces/IGraphics.h
+    Common_3/Graphics/Interfaces/IShaderReflection.h
+    Common_3/Renderer/Interfaces/IVisibilityBuffer.h
+    Common_3/Resources/ResourceLoader/Interfaces/IResourceLoader.h
 )
 set(RENDERER_OBJCPP_SRC
-    Common_3/Graphics/GPUConfig.cpp Common_3/Graphics/CommonShaderReflection.cpp
-    Common_3/Graphics/PickRenderingAPI.cpp Common_3/Renderer/VisibilityBuffer/VisibilityBuffer.cpp
+    # cmake-format: sortable
+    Common_3/Graphics/CommonShaderReflection.cpp
+    Common_3/Graphics/GraphicsConfig.cpp
+    Common_3/Graphics/PickRenderingAPI.cpp
+    Common_3/Renderer/VisibilityBuffer/VisibilityBuffer.cpp
     Common_3/Resources/ResourceLoader/ResourceLoader.cpp
 )
 
 set(OS_SRC
-    Common_3/Tools/ReloadServer/ReloadClient.cpp
-    Common_3/Tools/ReloadServer/ReloadClient.h
-    Common_3/Tools/Network/Network.c
-    Common_3/Tools/Network/Network.h
-    Common_3/Resources/AnimationSystem/Animation/Shaders/FSL/Animation_ShaderList.fsl
-    Common_3/Resources/AnimationSystem/Animation/Shaders/FSL/joint.vert.fsl
-    Common_3/Resources/AnimationSystem/Animation/Shaders/FSL/joint.frag.fsl
-    Common_3/Resources/AnimationSystem/Animation/Shaders/FSL/bone.vert.fsl
-    Common_3/Resources/AnimationSystem/Animation/Shaders/FSL/bone.frag.fsl
-    Common_3/Resources/AnimationSystem/Animation/AnimatedObject.cpp
-    Common_3/Resources/AnimationSystem/Animation/AnimatedObject.h
-    Common_3/Resources/AnimationSystem/Animation/Animation.cpp
-    Common_3/Resources/AnimationSystem/Animation/Animation.h
-    Common_3/Resources/AnimationSystem/Animation/Clip.cpp
-    Common_3/Resources/AnimationSystem/Animation/Clip.h
-    Common_3/Resources/AnimationSystem/Animation/ClipController.cpp
-    Common_3/Resources/AnimationSystem/Animation/ClipController.h
-    Common_3/Resources/AnimationSystem/Animation/ClipMask.cpp
-    Common_3/Resources/AnimationSystem/Animation/ClipMask.h
-    Common_3/Resources/AnimationSystem/Animation/Rig.cpp
-    Common_3/Resources/AnimationSystem/Animation/Rig.h
-    Common_3/Resources/AnimationSystem/Animation/SkeletonBatcher.h
-    Middleware_3/PaniniProjection/Shaders/FSL/panini_projection.frag.fsl
-    Middleware_3/PaniniProjection/Shaders/FSL/panini_projection.vert.fsl
-    Middleware_3/PaniniProjection/Shaders/FSL/resources.h
+    # cmake-format: sortable
     Common_3/Application/CameraController.cpp
-    Common_3/Utilities/Threading/ThreadSystem.c
-    Common_3/Utilities/Threading/Atomics.h
     Common_3/Application/Config.h
-    Common_3/Utilities/Math/Algorithms.c
-    Common_3/Utilities/Math/Algorithms.h
-    Common_3/Utilities/Math/Random.h
-    Common_3/Utilities/Math/BStringHashMap.h
-    Common_3/Utilities/Math/StbDs.c
-    Common_3/Utilities/RingBuffer.h
-    Common_3/Utilities/Timer.c
-    Common_3/OS/CPUConfig.cpp
-    Common_3/Utilities/Threading/ThreadSystem.h
-    Common_3/Application/Interfaces/IProfiler.h
+    Common_3/Application/Fonts/Shaders/FSL/fontstash.frag.fsl
+    Common_3/Application/Fonts/Shaders/FSL/fontstash2D.vert.fsl
+    Common_3/Application/Fonts/Shaders/FSL/fontstash3D.vert.fsl
+    Common_3/Application/Fonts/Shaders/FSL/resources.h
+    Common_3/Application/Fonts/stbtt.cpp
     Common_3/Application/Interfaces/IApp.h
-    Common_3/Utilities/Interfaces/IFileSystem.h
-    Common_3/Utilities/Interfaces/ILog.h
-    Common_3/Utilities/Interfaces/IMemory.h
-    Common_3/OS/Interfaces/IOperatingSystem.h
-    Common_3/Utilities/Interfaces/IThread.h
-    Common_3/Utilities/Interfaces/ITime.h
-    Common_3/Application/Interfaces/IFont.h
-    Common_3/Game/Interfaces/IScripting.h
-    Common_3/Application/Interfaces/IUI.h
     Common_3/Application/Interfaces/ICameraController.h
+    Common_3/Application/Interfaces/IFont.h
     Common_3/Application/Interfaces/IInput.h
     Common_3/Application/Interfaces/IMiddleware.h
+    Common_3/Application/Interfaces/IProfiler.h
     Common_3/Application/Interfaces/IScreenshot.h
-    Common_3/Utilities/Log/Log.c
-    Common_3/Utilities/Log/Log.h
-    Common_3/Utilities/Math/MathTypes.h
-    Common_3/Utilities/Math/ShaderUtilities.h
-    Common_3/Utilities/MemoryTracking/MemoryTracking.c
-    Common_3/Utilities/ThirdParty/OpenSource/zstd/decompress/zstd_decompress_block.c
-    Common_3/Utilities/ThirdParty/OpenSource/zstd/decompress/zstd_decompress.c
-    Common_3/Utilities/ThirdParty/OpenSource/zstd/decompress/zstd_ddict.c
-    Common_3/Utilities/ThirdParty/OpenSource/zstd/decompress/huf_decompress.c
-    Common_3/Utilities/ThirdParty/OpenSource/zstd/common/zstd_common.c
-    Common_3/Utilities/ThirdParty/OpenSource/zstd/common/xxhash.c
-    Common_3/Utilities/ThirdParty/OpenSource/zstd/common/threading.c
-    Common_3/Utilities/ThirdParty/OpenSource/zstd/common/pool.c
-    Common_3/Utilities/ThirdParty/OpenSource/zstd/common/fse_decompress.c
-    Common_3/Utilities/ThirdParty/OpenSource/zstd/common/error_private.c
-    Common_3/Utilities/ThirdParty/OpenSource/zstd/common/entropy_common.c
-    Common_3/Utilities/ThirdParty/OpenSource/zstd/common/debug.c
-    Common_3/Utilities/ThirdParty/OpenSource/lz4/lz4.c
-    Common_3/Utilities/ThirdParty/OpenSource/bstrlib/bstrlib.c
-    Common_3/Utilities/ThirdParty/OpenSource/bstrlib/bstrlib.h
-    Common_3/Utilities/ThirdParty/OpenSource/rmem/src/rmem_get_module_info.cpp
-    Common_3/Utilities/ThirdParty/OpenSource/rmem/src/rmem_hook.cpp
-    Common_3/Utilities/ThirdParty/OpenSource/rmem/src/rmem_lib.cpp
+    Common_3/Application/Interfaces/IUI.h
+    Common_3/Application/Profiler/GpuProfiler.h
+    Common_3/Application/Profiler/ProfilerBase.h
+    Common_3/Application/Profiler/ProfilerHTML.h
     Common_3/Application/ThirdParty/OpenSource/imgui/imconfig.h
     Common_3/Application/ThirdParty/OpenSource/imgui/imgui.cpp
     Common_3/Application/ThirdParty/OpenSource/imgui/imgui.h
     Common_3/Application/ThirdParty/OpenSource/imgui/imgui_demo.cpp
     Common_3/Application/ThirdParty/OpenSource/imgui/imgui_draw.cpp
     Common_3/Application/ThirdParty/OpenSource/imgui/imgui_internal.h
-    Common_3/Application/ThirdParty/OpenSource/imgui/imgui_widgets.cpp
     Common_3/Application/ThirdParty/OpenSource/imgui/imgui_tables.cpp
+    Common_3/Application/ThirdParty/OpenSource/imgui/imgui_widgets.cpp
+    Common_3/Application/UI/Shaders/FSL/imgui.frag.fsl
+    Common_3/Application/UI/Shaders/FSL/imgui.vert.fsl
+    Common_3/Application/UI/Shaders/FSL/textured_mesh.frag.fsl
+    Common_3/Application/UI/Shaders/FSL/textured_mesh.vert.fsl
+    Common_3/Game/Interfaces/IScripting.h
+    Common_3/Game/Scripting/LuaManager.cpp
+    Common_3/Game/Scripting/LuaManagerImpl.cpp
     Common_3/Game/ThirdParty/OpenSource/lua-5.3.5/src/lapi.c
     Common_3/Game/ThirdParty/OpenSource/lua-5.3.5/src/lapi.h
     Common_3/Game/ThirdParty/OpenSource/lua-5.3.5/src/lauxlib.c
@@ -182,51 +136,97 @@ set(OS_SRC
     Common_3/Game/ThirdParty/OpenSource/lua-5.3.5/src/lvm.h
     Common_3/Game/ThirdParty/OpenSource/lua-5.3.5/src/lzio.c
     Common_3/Game/ThirdParty/OpenSource/lua-5.3.5/src/lzio.h
-    Common_3/OS/ThirdParty/OpenSource/cpu_features/src/impl_x86_linux_or_android.c
+    Common_3/OS/CPUConfig.cpp
+    Common_3/OS/Interfaces/IOperatingSystem.h
     Common_3/OS/ThirdParty/OpenSource/cpu_features/src/impl_aarch64_linux_or_android.c
+    Common_3/OS/ThirdParty/OpenSource/cpu_features/src/impl_x86_linux_or_android.c
+    Common_3/Resources/AnimationSystem/Animation/AnimatedObject.cpp
+    Common_3/Resources/AnimationSystem/Animation/AnimatedObject.h
+    Common_3/Resources/AnimationSystem/Animation/Animation.cpp
+    Common_3/Resources/AnimationSystem/Animation/Animation.h
+    Common_3/Resources/AnimationSystem/Animation/Clip.cpp
+    Common_3/Resources/AnimationSystem/Animation/Clip.h
+    Common_3/Resources/AnimationSystem/Animation/ClipController.cpp
+    Common_3/Resources/AnimationSystem/Animation/ClipController.h
+    Common_3/Resources/AnimationSystem/Animation/ClipMask.cpp
+    Common_3/Resources/AnimationSystem/Animation/ClipMask.h
+    Common_3/Resources/AnimationSystem/Animation/Rig.cpp
+    Common_3/Resources/AnimationSystem/Animation/Rig.h
+    Common_3/Resources/AnimationSystem/Animation/Shaders/FSL/Animation_ShaderList.fsl
+    Common_3/Resources/AnimationSystem/Animation/Shaders/FSL/bone.frag.fsl
+    Common_3/Resources/AnimationSystem/Animation/Shaders/FSL/bone.vert.fsl
+    Common_3/Resources/AnimationSystem/Animation/Shaders/FSL/joint.frag.fsl
+    Common_3/Resources/AnimationSystem/Animation/Shaders/FSL/joint.vert.fsl
+    Common_3/Resources/AnimationSystem/Animation/SkeletonBatcher.h
+    Common_3/Tools/Network/Network.c
+    Common_3/Tools/Network/Network.h
+    Common_3/Tools/ReloadServer/ReloadClient.cpp
+    Common_3/Tools/ReloadServer/ReloadClient.h
+    Common_3/Utilities/FileSystem/FileSystem.c
+    Common_3/Utilities/FileSystem/SystemRun.c
+    Common_3/Utilities/Interfaces/IFileSystem.h
+    Common_3/Utilities/Interfaces/ILog.h
+    Common_3/Utilities/Interfaces/IMemory.h
+    Common_3/Utilities/Interfaces/IThread.h
+    Common_3/Utilities/Interfaces/ITime.h
+    Common_3/Utilities/Log/Log.c
+    Common_3/Utilities/Log/Log.h
+    Common_3/Utilities/Math/Algorithms.c
+    Common_3/Utilities/Math/Algorithms.h
+    Common_3/Utilities/Math/BStringHashMap.h
+    Common_3/Utilities/Math/MathTypes.h
+    Common_3/Utilities/Math/Random.h
+    Common_3/Utilities/Math/ShaderUtilities.h
+    Common_3/Utilities/Math/StbDs.c
+    Common_3/Utilities/MemoryTracking/MemoryTracking.c
+    Common_3/Utilities/RingBuffer.h
+    Common_3/Utilities/ThirdParty/OpenSource/bstrlib/bstrlib.c
+    Common_3/Utilities/ThirdParty/OpenSource/bstrlib/bstrlib.h
+    Common_3/Utilities/ThirdParty/OpenSource/lz4/lz4.c
+    Common_3/Utilities/ThirdParty/OpenSource/rmem/src/rmem_get_module_info.cpp
+    Common_3/Utilities/ThirdParty/OpenSource/rmem/src/rmem_hook.cpp
+    Common_3/Utilities/ThirdParty/OpenSource/rmem/src/rmem_lib.cpp
     Common_3/Utilities/ThirdParty/OpenSource/TaskScheduler/Scheduler/Source/MTDefaultAppInterop.cpp
     Common_3/Utilities/ThirdParty/OpenSource/TaskScheduler/Scheduler/Source/MTFiberContext.cpp
     Common_3/Utilities/ThirdParty/OpenSource/TaskScheduler/Scheduler/Source/MTScheduler.cpp
     Common_3/Utilities/ThirdParty/OpenSource/TaskScheduler/Scheduler/Source/MTThreadContext.cpp
-    Common_3/Utilities/FileSystem/FileSystem.c
-    Common_3/Utilities/FileSystem/SystemRun.c
-    Common_3/Application/Profiler/GpuProfiler.h
-    Common_3/Application/Profiler/ProfilerBase.h
-    Common_3/Application/Profiler/ProfilerHTML.h
-    Common_3/Application/Fonts/Shaders/FSL/fontstash.frag.fsl
-    Common_3/Application/Fonts/Shaders/FSL/fontstash2D.vert.fsl
-    Common_3/Application/Fonts/Shaders/FSL/fontstash3D.vert.fsl
-    Common_3/Application/Fonts/Shaders/FSL/resources.h
-    Common_3/Application/Fonts/stbtt.cpp
-    Common_3/Application/UI/Shaders/FSL/imgui.frag.fsl
-    Common_3/Application/UI/Shaders/FSL/imgui.vert.fsl
-    Common_3/Application/UI/Shaders/FSL/textured_mesh.frag.fsl
-    Common_3/Application/UI/Shaders/FSL/textured_mesh.vert.fsl
-    Common_3/Game/Scripting/LuaManager.cpp
-    Common_3/Game/Scripting/LuaManagerImpl.cpp
+    Common_3/Utilities/ThirdParty/OpenSource/zstd/common/debug.c
+    Common_3/Utilities/ThirdParty/OpenSource/zstd/common/entropy_common.c
+    Common_3/Utilities/ThirdParty/OpenSource/zstd/common/error_private.c
+    Common_3/Utilities/ThirdParty/OpenSource/zstd/common/fse_decompress.c
+    Common_3/Utilities/ThirdParty/OpenSource/zstd/common/pool.c
+    Common_3/Utilities/ThirdParty/OpenSource/zstd/common/threading.c
+    Common_3/Utilities/ThirdParty/OpenSource/zstd/common/xxhash.c
+    Common_3/Utilities/ThirdParty/OpenSource/zstd/common/zstd_common.c
+    Common_3/Utilities/ThirdParty/OpenSource/zstd/decompress/huf_decompress.c
+    Common_3/Utilities/ThirdParty/OpenSource/zstd/decompress/zstd_ddict.c
+    Common_3/Utilities/ThirdParty/OpenSource/zstd/decompress/zstd_decompress.c
+    Common_3/Utilities/ThirdParty/OpenSource/zstd/decompress/zstd_decompress_block.c
+    Common_3/Utilities/Threading/Atomics.h
+    Common_3/Utilities/Threading/ThreadSystem.c
+    Common_3/Utilities/Threading/ThreadSystem.h
+    Common_3/Utilities/Timer.c
+    Middleware_3/PaniniProjection/Shaders/FSL/panini_projection.frag.fsl
+    Middleware_3/PaniniProjection/Shaders/FSL/panini_projection.vert.fsl
+    Middleware_3/PaniniProjection/Shaders/FSL/resources.h
 )
 
 set(OS_OBJCPP_SRC
-    Common_3/Application/Profiler/GpuProfiler.cpp
-    Common_3/Game/Scripting/LuaSystem.cpp
+    # cmake-format: sortable
     Common_3/Application/Fonts/FontSystem.cpp
+    Common_3/Application/InputSystem.cpp
+    Common_3/Application/Profiler/GpuProfiler.cpp
+    Common_3/Application/Profiler/ProfilerBase.cpp
+    Common_3/Application/RemoteControl.cpp
+    Common_3/Application/Screenshot.cpp
+    Common_3/Application/UI/UI.cpp
+    Common_3/Game/Scripting/LuaSystem.cpp
     Common_3/OS/WindowSystem/WindowSystem.cpp
     Common_3/Resources/AnimationSystem/Animation/SkeletonBatcher.cpp
-    Common_3/Application/UI/UI.cpp
-    Common_3/Application/Profiler/ProfilerBase.cpp
-    Common_3/Application/Screenshot.cpp
-    Common_3/Application/InputSystem.cpp
-    Common_3/Application/RemoteControl.cpp
 )
 
 set(OZZ_BASE_SRC
-    Common_3/Resources/AnimationSystem/ThirdParty/OpenSource/ozz-animation/src/base/memory/allocator.cc
-    Common_3/Resources/AnimationSystem/ThirdParty/OpenSource/ozz-animation/src/base/io/archive.cc
-    Common_3/Resources/AnimationSystem/ThirdParty/OpenSource/ozz-animation/src/base/maths/math_archive.cc
-    Common_3/Resources/AnimationSystem/ThirdParty/OpenSource/ozz-animation/src/base/platform.cc
-    Common_3/Resources/AnimationSystem/ThirdParty/OpenSource/ozz-animation/src/base/maths/simd_math_archive.cc
-    Common_3/Resources/AnimationSystem/ThirdParty/OpenSource/ozz-animation/src/base/maths/soa_math_archive.cc
-    Common_3/Resources/AnimationSystem/ThirdParty/OpenSource/ozz-animation/src/base/containers/string_archive.cc
+    # cmake-format: sortable
     Common_3/Resources/AnimationSystem/ThirdParty/OpenSource/ozz-animation/include/ozz/base/containers/string.h
     Common_3/Resources/AnimationSystem/ThirdParty/OpenSource/ozz-animation/include/ozz/base/containers/string_archive.h
     Common_3/Resources/AnimationSystem/ThirdParty/OpenSource/ozz-animation/include/ozz/base/containers/vector.h
@@ -241,25 +241,21 @@ set(OZZ_BASE_SRC
     Common_3/Resources/AnimationSystem/ThirdParty/OpenSource/ozz-animation/include/ozz/base/maths/soa_math_archive.h
     Common_3/Resources/AnimationSystem/ThirdParty/OpenSource/ozz-animation/include/ozz/base/memory/allocator.h
     Common_3/Resources/AnimationSystem/ThirdParty/OpenSource/ozz-animation/include/ozz/base/platform.h
+    Common_3/Resources/AnimationSystem/ThirdParty/OpenSource/ozz-animation/src/base/containers/string_archive.cc
+    Common_3/Resources/AnimationSystem/ThirdParty/OpenSource/ozz-animation/src/base/io/archive.cc
+    Common_3/Resources/AnimationSystem/ThirdParty/OpenSource/ozz-animation/src/base/maths/math_archive.cc
+    Common_3/Resources/AnimationSystem/ThirdParty/OpenSource/ozz-animation/src/base/maths/simd_math_archive.cc
+    Common_3/Resources/AnimationSystem/ThirdParty/OpenSource/ozz-animation/src/base/maths/soa_math_archive.cc
+    Common_3/Resources/AnimationSystem/ThirdParty/OpenSource/ozz-animation/src/base/memory/allocator.cc
+    Common_3/Resources/AnimationSystem/ThirdParty/OpenSource/ozz-animation/src/base/platform.cc
 )
 
 set(OZZ_ANIMATION_SRC
-    Common_3/Resources/AnimationSystem/ThirdParty/OpenSource/ozz-animation/src/animation/runtime/ik_aim_job.cc
-    Common_3/Resources/AnimationSystem/ThirdParty/OpenSource/ozz-animation/src/animation/runtime/ik_two_bone_job.cc
-    Common_3/Resources/AnimationSystem/ThirdParty/OpenSource/ozz-animation/src/animation/runtime/animation.cc
-    Common_3/Resources/AnimationSystem/ThirdParty/OpenSource/ozz-animation/src/animation/runtime/blending_job.cc
-    Common_3/Resources/AnimationSystem/ThirdParty/OpenSource/ozz-animation/src/animation/runtime/local_to_model_job.cc
-    Common_3/Resources/AnimationSystem/ThirdParty/OpenSource/ozz-animation/src/animation/runtime/sampling_job.cc
-    Common_3/Resources/AnimationSystem/ThirdParty/OpenSource/ozz-animation/src/animation/runtime/skeleton.cc
-    Common_3/Resources/AnimationSystem/ThirdParty/OpenSource/ozz-animation/src/animation/runtime/skeleton_utils.cc
-    Common_3/Resources/AnimationSystem/ThirdParty/OpenSource/ozz-animation/src/animation/runtime/track.cc
-    Common_3/Resources/AnimationSystem/ThirdParty/OpenSource/ozz-animation/src/animation/runtime/track_sampling_job.cc
-    Common_3/Resources/AnimationSystem/ThirdParty/OpenSource/ozz-animation/src/animation/runtime/track_triggering_job.cc
+    # cmake-format: sortable
+    Common_3/Resources/AnimationSystem/ThirdParty/OpenSource/ozz-animation/include/ozz/animation/runtime/animation.h
+    Common_3/Resources/AnimationSystem/ThirdParty/OpenSource/ozz-animation/include/ozz/animation/runtime/blending_job.h
     Common_3/Resources/AnimationSystem/ThirdParty/OpenSource/ozz-animation/include/ozz/animation/runtime/ik_aim_job.h
     Common_3/Resources/AnimationSystem/ThirdParty/OpenSource/ozz-animation/include/ozz/animation/runtime/ik_two_bone_job.h
-    Common_3/Resources/AnimationSystem/ThirdParty/OpenSource/ozz-animation/include/ozz/animation/runtime/animation.h
-    Common_3/Resources/AnimationSystem/ThirdParty/OpenSource/ozz-animation/src/animation/runtime/animation_keyframe.h
-    Common_3/Resources/AnimationSystem/ThirdParty/OpenSource/ozz-animation/include/ozz/animation/runtime/blending_job.h
     Common_3/Resources/AnimationSystem/ThirdParty/OpenSource/ozz-animation/include/ozz/animation/runtime/local_to_model_job.h
     Common_3/Resources/AnimationSystem/ThirdParty/OpenSource/ozz-animation/include/ozz/animation/runtime/sampling_job.h
     Common_3/Resources/AnimationSystem/ThirdParty/OpenSource/ozz-animation/include/ozz/animation/runtime/skeleton.h
@@ -267,11 +263,24 @@ set(OZZ_ANIMATION_SRC
     Common_3/Resources/AnimationSystem/ThirdParty/OpenSource/ozz-animation/include/ozz/animation/runtime/track.h
     Common_3/Resources/AnimationSystem/ThirdParty/OpenSource/ozz-animation/include/ozz/animation/runtime/track_sampling_job.h
     Common_3/Resources/AnimationSystem/ThirdParty/OpenSource/ozz-animation/include/ozz/animation/runtime/track_triggering_job.h
+    Common_3/Resources/AnimationSystem/ThirdParty/OpenSource/ozz-animation/src/animation/runtime/animation.cc
+    Common_3/Resources/AnimationSystem/ThirdParty/OpenSource/ozz-animation/src/animation/runtime/animation_keyframe.h
+    Common_3/Resources/AnimationSystem/ThirdParty/OpenSource/ozz-animation/src/animation/runtime/blending_job.cc
+    Common_3/Resources/AnimationSystem/ThirdParty/OpenSource/ozz-animation/src/animation/runtime/ik_aim_job.cc
+    Common_3/Resources/AnimationSystem/ThirdParty/OpenSource/ozz-animation/src/animation/runtime/ik_two_bone_job.cc
+    Common_3/Resources/AnimationSystem/ThirdParty/OpenSource/ozz-animation/src/animation/runtime/local_to_model_job.cc
+    Common_3/Resources/AnimationSystem/ThirdParty/OpenSource/ozz-animation/src/animation/runtime/sampling_job.cc
+    Common_3/Resources/AnimationSystem/ThirdParty/OpenSource/ozz-animation/src/animation/runtime/skeleton.cc
+    Common_3/Resources/AnimationSystem/ThirdParty/OpenSource/ozz-animation/src/animation/runtime/skeleton_utils.cc
+    Common_3/Resources/AnimationSystem/ThirdParty/OpenSource/ozz-animation/src/animation/runtime/track.cc
+    Common_3/Resources/AnimationSystem/ThirdParty/OpenSource/ozz-animation/src/animation/runtime/track_sampling_job.cc
+    Common_3/Resources/AnimationSystem/ThirdParty/OpenSource/ozz-animation/src/animation/runtime/track_triggering_job.cc
 )
 
 set(SPIRVTOOLS_SRC
-    Common_3/Graphics/ThirdParty/OpenSource/SPIRV_Cross/spirv_cpp.cpp
+    # cmake-format: sortable
     Common_3/Graphics/ThirdParty/OpenSource/SPIRV_Cross/spirv_cfg.cpp
+    Common_3/Graphics/ThirdParty/OpenSource/SPIRV_Cross/spirv_cpp.cpp
     Common_3/Graphics/ThirdParty/OpenSource/SPIRV_Cross/spirv_cross.cpp
     Common_3/Graphics/ThirdParty/OpenSource/SPIRV_Cross/spirv_cross_parsed_ir.cpp
     Common_3/Graphics/ThirdParty/OpenSource/SPIRV_Cross/spirv_cross_util.cpp
@@ -285,43 +294,8 @@ set(SPIRVTOOLS_SRC
 )
 
 set(GAINPUT_SRC
-    Common_3/Application/ThirdParty/OpenSource/gainput/lib/source/gainput/GainputAllocator.cpp
-    Common_3/Application/ThirdParty/OpenSource/gainput/lib/source/gainput/GainputInputDeltaState.cpp
-    Common_3/Application/ThirdParty/OpenSource/gainput/lib/source/gainput/GainputInputDevice.cpp
-    Common_3/Application/ThirdParty/OpenSource/gainput/lib/source/gainput/GainputInputMap.cpp
-    Common_3/Application/ThirdParty/OpenSource/gainput/lib/source/gainput/GainputInputState.cpp
-    Common_3/Application/ThirdParty/OpenSource/gainput/lib/source/gainput/GainputMapFilters.cpp
-    Common_3/Application/ThirdParty/OpenSource/gainput/lib/source/gainput/builtin/GainputInputDeviceBuiltIn.cpp
-    Common_3/Application/ThirdParty/OpenSource/gainput/lib/source/gainput/dev/GainputDev.cpp
-    Common_3/Application/ThirdParty/OpenSource/gainput/lib/source/gainput/dev/GainputMemoryStream.cpp
-    Common_3/Application/ThirdParty/OpenSource/gainput/lib/source/gainput/dev/GainputNetAddress.cpp
-    Common_3/Application/ThirdParty/OpenSource/gainput/lib/source/gainput/dev/GainputNetConnection.cpp
-    Common_3/Application/ThirdParty/OpenSource/gainput/lib/source/gainput/dev/GainputNetListener.cpp
-    Common_3/Application/ThirdParty/OpenSource/gainput/lib/source/gainput/gainput.cpp
-    Common_3/Application/ThirdParty/OpenSource/gainput/lib/source/gainput/gestures/GainputButtonStickGesture.cpp
-    Common_3/Application/ThirdParty/OpenSource/gainput/lib/source/gainput/gestures/GainputDoubleClickGesture.cpp
-    Common_3/Application/ThirdParty/OpenSource/gainput/lib/source/gainput/gestures/GainputHoldGesture.cpp
-    Common_3/Application/ThirdParty/OpenSource/gainput/lib/source/gainput/gestures/GainputPinchGesture.cpp
-    Common_3/Application/ThirdParty/OpenSource/gainput/lib/source/gainput/gestures/GainputRotateGesture.cpp
-    Common_3/Application/ThirdParty/OpenSource/gainput/lib/source/gainput/gestures/GainputSimultaneouslyDownGesture.cpp
-    Common_3/Application/ThirdParty/OpenSource/gainput/lib/source/gainput/gestures/GainputTapGesture.cpp
-    Common_3/Application/ThirdParty/OpenSource/gainput/lib/source/gainput/keyboard/GainputInputDeviceKeyboard.cpp
-    Common_3/Application/ThirdParty/OpenSource/gainput/lib/source/gainput/recorder/GainputInputPlayer.cpp
-    Common_3/Application/ThirdParty/OpenSource/gainput/lib/source/gainput/recorder/GainputInputRecorder.cpp
-    Common_3/Application/ThirdParty/OpenSource/gainput/lib/source/gainput/recorder/GainputInputRecording.cpp
-    Common_3/Application/ThirdParty/OpenSource/gainput/lib/source/gainput/touch/GainputInputDeviceTouch.cpp
-    Common_3/Application/ThirdParty/OpenSource/gainput/lib/source/gainput/hid/hidparsers/HIDParserPS5Controller.cpp
-    Common_3/Application/ThirdParty/OpenSource/gainput/lib/source/gainput/hid/hidparsers/HIDParserPS5Controller.h
-    Common_3/Application/ThirdParty/OpenSource/gainput/lib/source/gainput/hid/hidparsers/HIDParserPS4Controller.cpp
-    Common_3/Application/ThirdParty/OpenSource/gainput/lib/source/gainput/hid/hidparsers/HIDParserPS4Controller.h
-    Common_3/Application/ThirdParty/OpenSource/gainput/lib/source/gainput/hid/hidparsers/HIDParserSwitchController.h
-    Common_3/Application/ThirdParty/OpenSource/gainput/lib/source/gainput/hid/hidparsers/HIDParserSwitchController.cpp
-    Common_3/Application/ThirdParty/OpenSource/gainput/lib/source/gainput/hid/GainputHID.cpp
-    Common_3/Application/ThirdParty/OpenSource/gainput/lib/source/gainput/hid/GainputHID.h
-    Common_3/Application/ThirdParty/OpenSource/gainput/lib/source/gainput/hid/GainputHIDTypes.h
-    Common_3/Application/ThirdParty/OpenSource/gainput/lib/source/gainput/hid/GainputHIDWhitelist.cpp
-    Common_3/Application/ThirdParty/OpenSource/gainput/lib/source/gainput/hid/GainputHIDWhitelist.h
-    Common_3/Application/ThirdParty/OpenSource/gainput/lib/source/hidapi/hidapi.h
+    # cmake-format: sortable
+    Common_3/Application/ThirdParty/OpenSource/gainput/lib/include/gainput/gainput.h
     Common_3/Application/ThirdParty/OpenSource/gainput/lib/include/gainput/GainputAllocator.h
     Common_3/Application/ThirdParty/OpenSource/gainput/lib/include/gainput/GainputContainers.h
     Common_3/Application/ThirdParty/OpenSource/gainput/lib/include/gainput/GainputDebugRenderer.h
@@ -339,7 +313,6 @@ set(GAINPUT_SRC
     Common_3/Application/ThirdParty/OpenSource/gainput/lib/include/gainput/GainputInputState.h
     Common_3/Application/ThirdParty/OpenSource/gainput/lib/include/gainput/GainputLog.h
     Common_3/Application/ThirdParty/OpenSource/gainput/lib/include/gainput/GainputMapFilters.h
-    Common_3/Application/ThirdParty/OpenSource/gainput/lib/include/gainput/gainput.h
     Common_3/Application/ThirdParty/OpenSource/gainput/lib/include/gainput/gestures/GainputButtonStickGesture.h
     Common_3/Application/ThirdParty/OpenSource/gainput/lib/include/gainput/gestures/GainputDoubleClickGesture.h
     Common_3/Application/ThirdParty/OpenSource/gainput/lib/include/gainput/gestures/GainputGestures.h
@@ -351,39 +324,77 @@ set(GAINPUT_SRC
     Common_3/Application/ThirdParty/OpenSource/gainput/lib/include/gainput/recorder/GainputInputPlayer.h
     Common_3/Application/ThirdParty/OpenSource/gainput/lib/include/gainput/recorder/GainputInputRecorder.h
     Common_3/Application/ThirdParty/OpenSource/gainput/lib/include/gainput/recorder/GainputInputRecording.h
-    Common_3/Application/ThirdParty/OpenSource/gainput/lib/source/gainput/linux/GainputHelpersEvdev.h
-    Common_3/Application/ThirdParty/OpenSource/gainput/lib/source/gainput/windows/GainputWindows.h
+    Common_3/Application/ThirdParty/OpenSource/gainput/lib/source/gainput/builtin/GainputInputDeviceBuiltIn.cpp
     Common_3/Application/ThirdParty/OpenSource/gainput/lib/source/gainput/builtin/GainputInputDeviceBuiltInImpl.h
     Common_3/Application/ThirdParty/OpenSource/gainput/lib/source/gainput/builtin/GainputInputDeviceBuiltInNull.h
+    Common_3/Application/ThirdParty/OpenSource/gainput/lib/source/gainput/dev/GainputDev.cpp
     Common_3/Application/ThirdParty/OpenSource/gainput/lib/source/gainput/dev/GainputDev.h
     Common_3/Application/ThirdParty/OpenSource/gainput/lib/source/gainput/dev/GainputDevProtocol.h
+    Common_3/Application/ThirdParty/OpenSource/gainput/lib/source/gainput/dev/GainputMemoryStream.cpp
     Common_3/Application/ThirdParty/OpenSource/gainput/lib/source/gainput/dev/GainputMemoryStream.h
+    Common_3/Application/ThirdParty/OpenSource/gainput/lib/source/gainput/dev/GainputNetAddress.cpp
     Common_3/Application/ThirdParty/OpenSource/gainput/lib/source/gainput/dev/GainputNetAddress.h
+    Common_3/Application/ThirdParty/OpenSource/gainput/lib/source/gainput/dev/GainputNetConnection.cpp
     Common_3/Application/ThirdParty/OpenSource/gainput/lib/source/gainput/dev/GainputNetConnection.h
+    Common_3/Application/ThirdParty/OpenSource/gainput/lib/source/gainput/dev/GainputNetListener.cpp
     Common_3/Application/ThirdParty/OpenSource/gainput/lib/source/gainput/dev/GainputNetListener.h
     Common_3/Application/ThirdParty/OpenSource/gainput/lib/source/gainput/dev/GainputStream.h
-    Common_3/Application/ThirdParty/OpenSource/gainput/lib/source/gainput/linux/GainputInputDeviceKeyboardEvdev.h
-    Common_3/Application/ThirdParty/OpenSource/gainput/lib/source/gainput/linux/GainputInputDeviceKeyboardLinux.h
+    Common_3/Application/ThirdParty/OpenSource/gainput/lib/source/gainput/gainput.cpp
+    Common_3/Application/ThirdParty/OpenSource/gainput/lib/source/gainput/GainputAllocator.cpp
+    Common_3/Application/ThirdParty/OpenSource/gainput/lib/source/gainput/GainputInputDeltaState.cpp
+    Common_3/Application/ThirdParty/OpenSource/gainput/lib/source/gainput/GainputInputDevice.cpp
+    Common_3/Application/ThirdParty/OpenSource/gainput/lib/source/gainput/GainputInputMap.cpp
+    Common_3/Application/ThirdParty/OpenSource/gainput/lib/source/gainput/GainputInputState.cpp
+    Common_3/Application/ThirdParty/OpenSource/gainput/lib/source/gainput/GainputMapFilters.cpp
+    Common_3/Application/ThirdParty/OpenSource/gainput/lib/source/gainput/gestures/GainputButtonStickGesture.cpp
+    Common_3/Application/ThirdParty/OpenSource/gainput/lib/source/gainput/gestures/GainputDoubleClickGesture.cpp
+    Common_3/Application/ThirdParty/OpenSource/gainput/lib/source/gainput/gestures/GainputHoldGesture.cpp
+    Common_3/Application/ThirdParty/OpenSource/gainput/lib/source/gainput/gestures/GainputPinchGesture.cpp
+    Common_3/Application/ThirdParty/OpenSource/gainput/lib/source/gainput/gestures/GainputRotateGesture.cpp
+    Common_3/Application/ThirdParty/OpenSource/gainput/lib/source/gainput/gestures/GainputSimultaneouslyDownGesture.cpp
+    Common_3/Application/ThirdParty/OpenSource/gainput/lib/source/gainput/gestures/GainputTapGesture.cpp
+    Common_3/Application/ThirdParty/OpenSource/gainput/lib/source/gainput/hid/GainputHID.cpp
+    Common_3/Application/ThirdParty/OpenSource/gainput/lib/source/gainput/hid/GainputHID.h
+    Common_3/Application/ThirdParty/OpenSource/gainput/lib/source/gainput/hid/GainputHIDTypes.h
+    Common_3/Application/ThirdParty/OpenSource/gainput/lib/source/gainput/hid/GainputHIDWhitelist.cpp
+    Common_3/Application/ThirdParty/OpenSource/gainput/lib/source/gainput/hid/GainputHIDWhitelist.h
+    Common_3/Application/ThirdParty/OpenSource/gainput/lib/source/gainput/hid/hidparsers/HIDParserPS4Controller.cpp
+    Common_3/Application/ThirdParty/OpenSource/gainput/lib/source/gainput/hid/hidparsers/HIDParserPS4Controller.h
+    Common_3/Application/ThirdParty/OpenSource/gainput/lib/source/gainput/hid/hidparsers/HIDParserPS5Controller.cpp
+    Common_3/Application/ThirdParty/OpenSource/gainput/lib/source/gainput/hid/hidparsers/HIDParserPS5Controller.h
+    Common_3/Application/ThirdParty/OpenSource/gainput/lib/source/gainput/hid/hidparsers/HIDParserSwitchController.cpp
+    Common_3/Application/ThirdParty/OpenSource/gainput/lib/source/gainput/hid/hidparsers/HIDParserSwitchController.h
+    Common_3/Application/ThirdParty/OpenSource/gainput/lib/source/gainput/keyboard/GainputInputDeviceKeyboard.cpp
     Common_3/Application/ThirdParty/OpenSource/gainput/lib/source/gainput/keyboard/GainputInputDeviceKeyboardImpl.h
     Common_3/Application/ThirdParty/OpenSource/gainput/lib/source/gainput/keyboard/GainputInputDeviceKeyboardNull.h
     Common_3/Application/ThirdParty/OpenSource/gainput/lib/source/gainput/keyboard/GainputKeyboardKeyNames.h
-    Common_3/Application/ThirdParty/OpenSource/gainput/lib/source/gainput/linux/GainputInputDeviceMouseLinuxRaw.h
-    Common_3/Application/ThirdParty/OpenSource/gainput/lib/source/gainput/linux/GainputInputDeviceMouseLinux.h
+    Common_3/Application/ThirdParty/OpenSource/gainput/lib/source/gainput/linux/GainputHelpersEvdev.h
+    Common_3/Application/ThirdParty/OpenSource/gainput/lib/source/gainput/linux/GainputInputDeviceKeyboardEvdev.h
+    Common_3/Application/ThirdParty/OpenSource/gainput/lib/source/gainput/linux/GainputInputDeviceKeyboardLinux.h
     Common_3/Application/ThirdParty/OpenSource/gainput/lib/source/gainput/linux/GainputInputDeviceMouseEvdev.h
+    Common_3/Application/ThirdParty/OpenSource/gainput/lib/source/gainput/linux/GainputInputDeviceMouseLinux.h
+    Common_3/Application/ThirdParty/OpenSource/gainput/lib/source/gainput/linux/GainputInputDeviceMouseLinuxRaw.h
+    Common_3/Application/ThirdParty/OpenSource/gainput/lib/source/gainput/linux/GainputInputDevicePadLinux.h
     Common_3/Application/ThirdParty/OpenSource/gainput/lib/source/gainput/mouse/GainputInputDeviceMouseImpl.h
     Common_3/Application/ThirdParty/OpenSource/gainput/lib/source/gainput/mouse/GainputInputDeviceMouseNull.h
     Common_3/Application/ThirdParty/OpenSource/gainput/lib/source/gainput/mouse/GainputMouseInfo.h
     Common_3/Application/ThirdParty/OpenSource/gainput/lib/source/gainput/pad/GainputInputDevicePadImpl.h
-    Common_3/Application/ThirdParty/OpenSource/gainput/lib/source/gainput/linux/GainputInputDevicePadLinux.h
     Common_3/Application/ThirdParty/OpenSource/gainput/lib/source/gainput/pad/GainputInputDevicePadNull.h
+    Common_3/Application/ThirdParty/OpenSource/gainput/lib/source/gainput/recorder/GainputInputPlayer.cpp
+    Common_3/Application/ThirdParty/OpenSource/gainput/lib/source/gainput/recorder/GainputInputRecorder.cpp
+    Common_3/Application/ThirdParty/OpenSource/gainput/lib/source/gainput/recorder/GainputInputRecording.cpp
+    Common_3/Application/ThirdParty/OpenSource/gainput/lib/source/gainput/touch/GainputInputDeviceTouch.cpp
     Common_3/Application/ThirdParty/OpenSource/gainput/lib/source/gainput/touch/GainputInputDeviceTouchImpl.h
     Common_3/Application/ThirdParty/OpenSource/gainput/lib/source/gainput/touch/GainputInputDeviceTouchNull.h
     Common_3/Application/ThirdParty/OpenSource/gainput/lib/source/gainput/touch/GainputTouchInfo.h
+    Common_3/Application/ThirdParty/OpenSource/gainput/lib/source/gainput/windows/GainputWindows.h
+    Common_3/Application/ThirdParty/OpenSource/gainput/lib/source/hidapi/hidapi.h
 )
 set(GAINPUT_OBJCPP_SRC
+    # cmake-format: sortable
     Common_3/Application/ThirdParty/OpenSource/gainput/lib/source/gainput/GainputInputManager.cpp
-    Common_3/Application/ThirdParty/OpenSource/gainput/lib/source/gainput/pad/GainputInputDevicePad.cpp
     Common_3/Application/ThirdParty/OpenSource/gainput/lib/source/gainput/mouse/GainputInputDeviceMouse.cpp
+    Common_3/Application/ThirdParty/OpenSource/gainput/lib/source/gainput/pad/GainputInputDevicePad.cpp
 )
 
 if(LINUX)
@@ -401,14 +412,13 @@ if(LINUX)
     list(
         APPEND
         OS_SRC
-        Common_3/OS/Linux/LinuxTime.c
-        Common_3/OS/Linux/LinuxLog.c
         Common_3/OS/Linux/LinuxBase.cpp
         Common_3/OS/Linux/LinuxFileSystem.c
+        Common_3/OS/Linux/LinuxLog.c
         Common_3/OS/Linux/LinuxThread.c
+        Common_3/OS/Linux/LinuxTime.c
         Common_3/OS/Linux/LinuxWindow.cpp
         Common_3/Utilities/FileSystem/UnixFileSystem.c
-        Common_3/Utilities/ThirdParty/OpenSource/zstd/decompress/huf_decompress_amd64.S
         Common_3/Utilities/ThirdParty/OpenSource/zstd/decompress/huf_decompress_amd64.S
     )
     list(APPEND GAINPUT_SRC Common_3/Application/ThirdParty/OpenSource/gainput/lib/source/hidapi/linux/hid.c)
@@ -433,20 +443,20 @@ if(WIN32)
         Common_3/Graphics/Direct3D11/Direct3D11.cpp
         Common_3/Graphics/Direct3D11/Direct3D11ShaderReflection.cpp
         Common_3/Graphics/Direct3D12/Direct3D12.cpp
-        Common_3/Graphics/Direct3D12/Direct3D12ShaderReflection.cpp
-        Common_3/Graphics/Direct3D12/Direct3D12Raytracing.cpp
         Common_3/Graphics/Direct3D12/Direct3D12Hooks.cpp
+        Common_3/Graphics/Direct3D12/Direct3D12Raytracing.cpp
+        Common_3/Graphics/Direct3D12/Direct3D12ShaderReflection.cpp
     )
     list(
         APPEND
         OS_SRC
-        Common_3/OS/Windows/WindowsTime.c
-        Common_3/OS/Windows/WindowsLog.c
+        Common_3/OS/ThirdParty/OpenSource/cpu_features/src/impl_x86_windows.c
         Common_3/OS/Windows/WindowsBase.cpp
         Common_3/OS/Windows/WindowsFileSystem.cpp
+        Common_3/OS/Windows/WindowsLog.c
         Common_3/OS/Windows/WindowsThread.c
+        Common_3/OS/Windows/WindowsTime.c
         Common_3/OS/Windows/WindowsWindow.cpp
-        Common_3/OS/ThirdParty/OpenSource/cpu_features/src/impl_x86_windows.c
     )
     list(APPEND GAINPUT_SRC
          Common_3/Application/ThirdParty/OpenSource/gainput/lib/source/hidapi/windows/hid.c
@@ -466,25 +476,33 @@ if(APPLE)
 
         set(FSL_LANGUAGES "MACOS")
 
-        list(APPEND OS_SRC Common_3/OS/Darwin/DarwinLog.c Common_3/OS/Darwin/DarwinThread.c
-             Common_3/OS/ThirdParty/OpenSource/cpu_features/src/impl_aarch64_iOS.c
-             Common_3/Utilities/FileSystem/UnixFileSystem.c
+        list(
+            APPEND
+            OS_SRC
+            Common_3/OS/Darwin/DarwinLog.c
+            Common_3/OS/Darwin/DarwinThread.c
+            Common_3/OS/ThirdParty/OpenSource/cpu_features/src/impl_aarch64_iOS.c
+            Common_3/Utilities/FileSystem/UnixFileSystem.c
         )
-        list(APPEND OS_OBJCPP_SRC Common_3/OS/Darwin/macOSBase.mm Common_3/OS/Darwin/macOSWindow.mm
-             Common_3/OS/Darwin/CocoaFileSystem.mm
+        list(APPEND OS_OBJCPP_SRC
+            Common_3/OS/Darwin/CocoaFileSystem.mm
+             Common_3/OS/Darwin/macOSBase.mm
+             Common_3/OS/Darwin/macOSWindow.mm
         )
-        list(APPEND RENDERER_OBJCPP_SRC Common_3/Graphics/Metal/MetalRenderer.mm
-             Common_3/Graphics/Metal/MetalShaderReflection.mm Common_3/Graphics/Metal/MetalRaytracing.mm
+        list(APPEND RENDERER_OBJCPP_SRC
+            Common_3/Graphics/Metal/MetalRaytracing.mm
+             Common_3/Graphics/Metal/MetalRenderer.mm
+             Common_3/Graphics/Metal/MetalShaderReflection.mm
         )
         list(
             APPEND
             GAINPUT_SRC
-            Common_3/Application/ThirdParty/OpenSource/gainput/lib/source/gainput/apple/GainputMac.mm
             Common_3/Application/ThirdParty/OpenSource/gainput/lib/source/gainput/apple/GainputInputDevicePadMac.cpp
             Common_3/Application/ThirdParty/OpenSource/gainput/lib/source/gainput/apple/GainputInputDeviceMouseMac.mm
             Common_3/Application/ThirdParty/OpenSource/gainput/lib/source/gainput/apple/GainputInputDevicePadAppleGCKit.mm
             Common_3/Application/ThirdParty/OpenSource/gainput/lib/source/gainput/apple/GainputInputDeviceKeyboardMac.cpp
             Common_3/Application/ThirdParty/OpenSource/gainput/lib/source/gainput/apple/GainputInputDeviceMouseMacRaw.mm
+            Common_3/Application/ThirdParty/OpenSource/gainput/lib/source/gainput/apple/GainputMac.mm
             Common_3/Application/ThirdParty/OpenSource/gainput/lib/source/hidapi/mac/hid.c
         )
         set_source_files_properties(
