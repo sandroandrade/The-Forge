@@ -141,7 +141,7 @@ void getOsVersion(ULONG& majorVersion, ULONG& minorVersion, ULONG& buildNumber)
     void(WINAPI * pfnRtlGetNtVersionNumbers)(__out_opt ULONG * pNtMajorVersion, __out_opt ULONG * pNtMinorVersion,
                                              __out_opt ULONG * pNtBuildNumber);
 
-    (FARPROC&)pfnRtlGetNtVersionNumbers = GetProcAddress(GetModuleHandle(L"ntdll.dll"), "RtlGetNtVersionNumbers");
+    (FARPROC&)pfnRtlGetNtVersionNumbers = GetProcAddress(GetModuleHandleW(L"ntdll.dll"), "RtlGetNtVersionNumbers");
 
     if (pfnRtlGetNtVersionNumbers)
     {
