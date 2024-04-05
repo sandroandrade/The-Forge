@@ -24,7 +24,6 @@ if(BUILD_UNIT_TESTS AND NOT EXISTS ${CMAKE_SOURCE_DIR}/Art)
 endif()
 
 set(RENDERER_SRC
-    # cmake-format: sortable
     Common_3/Game/ThirdParty/OpenSource/flecs/flecs.c
     Common_3/Game/ThirdParty/OpenSource/flecs/flecs.h
     Common_3/Graphics/GraphicsConfig.h
@@ -33,8 +32,8 @@ set(RENDERER_SRC
     Common_3/Renderer/Interfaces/IVisibilityBuffer.h
     Common_3/Resources/ResourceLoader/Interfaces/IResourceLoader.h
 )
+
 set(RENDERER_OBJCPP_SRC
-    # cmake-format: sortable
     Common_3/Graphics/CommonShaderReflection.cpp
     Common_3/Graphics/GraphicsConfig.cpp
     Common_3/Graphics/PickRenderingAPI.cpp
@@ -43,12 +42,11 @@ set(RENDERER_OBJCPP_SRC
 )
 
 set(OS_SRC
-    # cmake-format: sortable
     Common_3/Application/CameraController.cpp
     Common_3/Application/Config.h
-    Common_3/Application/Fonts/Shaders/FSL/fontstash.frag.fsl
     Common_3/Application/Fonts/Shaders/FSL/fontstash2D.vert.fsl
     Common_3/Application/Fonts/Shaders/FSL/fontstash3D.vert.fsl
+    Common_3/Application/Fonts/Shaders/FSL/fontstash.frag.fsl
     Common_3/Application/Fonts/Shaders/FSL/resources.h
     Common_3/Application/Fonts/stbtt.cpp
     Common_3/Application/Interfaces/IApp.h
@@ -64,9 +62,9 @@ set(OS_SRC
     Common_3/Application/Profiler/ProfilerHTML.h
     Common_3/Application/ThirdParty/OpenSource/imgui/imconfig.h
     Common_3/Application/ThirdParty/OpenSource/imgui/imgui.cpp
-    Common_3/Application/ThirdParty/OpenSource/imgui/imgui.h
     Common_3/Application/ThirdParty/OpenSource/imgui/imgui_demo.cpp
     Common_3/Application/ThirdParty/OpenSource/imgui/imgui_draw.cpp
+    Common_3/Application/ThirdParty/OpenSource/imgui/imgui.h
     Common_3/Application/ThirdParty/OpenSource/imgui/imgui_internal.h
     Common_3/Application/ThirdParty/OpenSource/imgui/imgui_tables.cpp
     Common_3/Application/ThirdParty/OpenSource/imgui/imgui_widgets.cpp
@@ -125,9 +123,9 @@ set(OS_SRC
     Common_3/Game/ThirdParty/OpenSource/lua-5.3.5/src/ltablib.c
     Common_3/Game/ThirdParty/OpenSource/lua-5.3.5/src/ltm.c
     Common_3/Game/ThirdParty/OpenSource/lua-5.3.5/src/ltm.h
+    Common_3/Game/ThirdParty/OpenSource/lua-5.3.5/src/luaconf.h
     Common_3/Game/ThirdParty/OpenSource/lua-5.3.5/src/lua.h
     Common_3/Game/ThirdParty/OpenSource/lua-5.3.5/src/lua.hpp
-    Common_3/Game/ThirdParty/OpenSource/lua-5.3.5/src/luaconf.h
     Common_3/Game/ThirdParty/OpenSource/lua-5.3.5/src/lualib.h
     Common_3/Game/ThirdParty/OpenSource/lua-5.3.5/src/lundump.c
     Common_3/Game/ThirdParty/OpenSource/lua-5.3.5/src/lundump.h
@@ -144,10 +142,10 @@ set(OS_SRC
     Common_3/Resources/AnimationSystem/Animation/AnimatedObject.h
     Common_3/Resources/AnimationSystem/Animation/Animation.cpp
     Common_3/Resources/AnimationSystem/Animation/Animation.h
-    Common_3/Resources/AnimationSystem/Animation/Clip.cpp
-    Common_3/Resources/AnimationSystem/Animation/Clip.h
     Common_3/Resources/AnimationSystem/Animation/ClipController.cpp
     Common_3/Resources/AnimationSystem/Animation/ClipController.h
+    Common_3/Resources/AnimationSystem/Animation/Clip.cpp
+    Common_3/Resources/AnimationSystem/Animation/Clip.h
     Common_3/Resources/AnimationSystem/Animation/ClipMask.cpp
     Common_3/Resources/AnimationSystem/Animation/ClipMask.h
     Common_3/Resources/AnimationSystem/Animation/Rig.cpp
@@ -200,8 +198,8 @@ set(OS_SRC
     Common_3/Utilities/ThirdParty/OpenSource/zstd/common/zstd_common.c
     Common_3/Utilities/ThirdParty/OpenSource/zstd/decompress/huf_decompress.c
     Common_3/Utilities/ThirdParty/OpenSource/zstd/decompress/zstd_ddict.c
-    Common_3/Utilities/ThirdParty/OpenSource/zstd/decompress/zstd_decompress.c
     Common_3/Utilities/ThirdParty/OpenSource/zstd/decompress/zstd_decompress_block.c
+    Common_3/Utilities/ThirdParty/OpenSource/zstd/decompress/zstd_decompress.c
     Common_3/Utilities/Threading/Atomics.h
     Common_3/Utilities/Threading/ThreadSystem.c
     Common_3/Utilities/Threading/ThreadSystem.h
@@ -212,7 +210,6 @@ set(OS_SRC
 )
 
 set(OS_OBJCPP_SRC
-    # cmake-format: sortable
     Common_3/Application/Fonts/FontSystem.cpp
     Common_3/Application/InputSystem.cpp
     Common_3/Application/Profiler/GpuProfiler.cpp
@@ -226,11 +223,10 @@ set(OS_OBJCPP_SRC
 )
 
 set(OZZ_BASE_SRC
-    # cmake-format: sortable
-    Common_3/Resources/AnimationSystem/ThirdParty/OpenSource/ozz-animation/include/ozz/base/containers/string.h
     Common_3/Resources/AnimationSystem/ThirdParty/OpenSource/ozz-animation/include/ozz/base/containers/string_archive.h
-    Common_3/Resources/AnimationSystem/ThirdParty/OpenSource/ozz-animation/include/ozz/base/containers/vector.h
+    Common_3/Resources/AnimationSystem/ThirdParty/OpenSource/ozz-animation/include/ozz/base/containers/string.h
     Common_3/Resources/AnimationSystem/ThirdParty/OpenSource/ozz-animation/include/ozz/base/containers/vector_archive.h
+    Common_3/Resources/AnimationSystem/ThirdParty/OpenSource/ozz-animation/include/ozz/base/containers/vector.h
     Common_3/Resources/AnimationSystem/ThirdParty/OpenSource/ozz-animation/include/ozz/base/endianness.h
     Common_3/Resources/AnimationSystem/ThirdParty/OpenSource/ozz-animation/include/ozz/base/io/archive.h
     Common_3/Resources/AnimationSystem/ThirdParty/OpenSource/ozz-animation/include/ozz/base/io/archive_traits.h
@@ -251,7 +247,6 @@ set(OZZ_BASE_SRC
 )
 
 set(OZZ_ANIMATION_SRC
-    # cmake-format: sortable
     Common_3/Resources/AnimationSystem/ThirdParty/OpenSource/ozz-animation/include/ozz/animation/runtime/animation.h
     Common_3/Resources/AnimationSystem/ThirdParty/OpenSource/ozz-animation/include/ozz/animation/runtime/blending_job.h
     Common_3/Resources/AnimationSystem/ThirdParty/OpenSource/ozz-animation/include/ozz/animation/runtime/ik_aim_job.h
@@ -278,7 +273,6 @@ set(OZZ_ANIMATION_SRC
 )
 
 set(SPIRVTOOLS_SRC
-    # cmake-format: sortable
     Common_3/Graphics/ThirdParty/OpenSource/SPIRV_Cross/spirv_cfg.cpp
     Common_3/Graphics/ThirdParty/OpenSource/SPIRV_Cross/spirv_cpp.cpp
     Common_3/Graphics/ThirdParty/OpenSource/SPIRV_Cross/spirv_cross.cpp
@@ -294,15 +288,14 @@ set(SPIRVTOOLS_SRC
 )
 
 set(GAINPUT_SRC
-    # cmake-format: sortable
-    Common_3/Application/ThirdParty/OpenSource/gainput/lib/include/gainput/gainput.h
     Common_3/Application/ThirdParty/OpenSource/gainput/lib/include/gainput/GainputAllocator.h
     Common_3/Application/ThirdParty/OpenSource/gainput/lib/include/gainput/GainputContainers.h
     Common_3/Application/ThirdParty/OpenSource/gainput/lib/include/gainput/GainputDebugRenderer.h
+    Common_3/Application/ThirdParty/OpenSource/gainput/lib/include/gainput/gainput.h
     Common_3/Application/ThirdParty/OpenSource/gainput/lib/include/gainput/GainputHelpers.h
     Common_3/Application/ThirdParty/OpenSource/gainput/lib/include/gainput/GainputInputDeltaState.h
-    Common_3/Application/ThirdParty/OpenSource/gainput/lib/include/gainput/GainputInputDevice.h
     Common_3/Application/ThirdParty/OpenSource/gainput/lib/include/gainput/GainputInputDeviceBuiltIn.h
+    Common_3/Application/ThirdParty/OpenSource/gainput/lib/include/gainput/GainputInputDevice.h
     Common_3/Application/ThirdParty/OpenSource/gainput/lib/include/gainput/GainputInputDeviceKeyboard.h
     Common_3/Application/ThirdParty/OpenSource/gainput/lib/include/gainput/GainputInputDeviceMouse.h
     Common_3/Application/ThirdParty/OpenSource/gainput/lib/include/gainput/GainputInputDevicePad.h
@@ -339,8 +332,8 @@ set(GAINPUT_SRC
     Common_3/Application/ThirdParty/OpenSource/gainput/lib/source/gainput/dev/GainputNetListener.cpp
     Common_3/Application/ThirdParty/OpenSource/gainput/lib/source/gainput/dev/GainputNetListener.h
     Common_3/Application/ThirdParty/OpenSource/gainput/lib/source/gainput/dev/GainputStream.h
-    Common_3/Application/ThirdParty/OpenSource/gainput/lib/source/gainput/gainput.cpp
     Common_3/Application/ThirdParty/OpenSource/gainput/lib/source/gainput/GainputAllocator.cpp
+    Common_3/Application/ThirdParty/OpenSource/gainput/lib/source/gainput/gainput.cpp
     Common_3/Application/ThirdParty/OpenSource/gainput/lib/source/gainput/GainputInputDeltaState.cpp
     Common_3/Application/ThirdParty/OpenSource/gainput/lib/source/gainput/GainputInputDevice.cpp
     Common_3/Application/ThirdParty/OpenSource/gainput/lib/source/gainput/GainputInputMap.cpp
@@ -391,7 +384,6 @@ set(GAINPUT_SRC
     Common_3/Application/ThirdParty/OpenSource/gainput/lib/source/hidapi/hidapi.h
 )
 set(GAINPUT_OBJCPP_SRC
-    # cmake-format: sortable
     Common_3/Application/ThirdParty/OpenSource/gainput/lib/source/gainput/GainputInputManager.cpp
     Common_3/Application/ThirdParty/OpenSource/gainput/lib/source/gainput/mouse/GainputInputDeviceMouse.cpp
     Common_3/Application/ThirdParty/OpenSource/gainput/lib/source/gainput/pad/GainputInputDevicePad.cpp
@@ -480,9 +472,7 @@ if(APPLE)
 
         set(FSL_LANGUAGES "MACOS")
 
-        list(
-            APPEND
-            OS_SRC
+        list(APPEND OS_SRC
             Common_3/OS/Darwin/DarwinLog.c
             Common_3/OS/Darwin/DarwinThread.c
             Common_3/OS/ThirdParty/OpenSource/cpu_features/src/impl_aarch64_iOS.c
@@ -501,11 +491,11 @@ if(APPLE)
         list(
             APPEND
             GAINPUT_SRC
-            Common_3/Application/ThirdParty/OpenSource/gainput/lib/source/gainput/apple/GainputInputDevicePadMac.cpp
-            Common_3/Application/ThirdParty/OpenSource/gainput/lib/source/gainput/apple/GainputInputDeviceMouseMac.mm
-            Common_3/Application/ThirdParty/OpenSource/gainput/lib/source/gainput/apple/GainputInputDevicePadAppleGCKit.mm
             Common_3/Application/ThirdParty/OpenSource/gainput/lib/source/gainput/apple/GainputInputDeviceKeyboardMac.cpp
+            Common_3/Application/ThirdParty/OpenSource/gainput/lib/source/gainput/apple/GainputInputDeviceMouseMac.mm
             Common_3/Application/ThirdParty/OpenSource/gainput/lib/source/gainput/apple/GainputInputDeviceMouseMacRaw.mm
+            Common_3/Application/ThirdParty/OpenSource/gainput/lib/source/gainput/apple/GainputInputDevicePadAppleGCKit.mm
+            Common_3/Application/ThirdParty/OpenSource/gainput/lib/source/gainput/apple/GainputInputDevicePadMac.cpp
             Common_3/Application/ThirdParty/OpenSource/gainput/lib/source/gainput/apple/GainputMac.mm
             Common_3/Application/ThirdParty/OpenSource/gainput/lib/source/hidapi/mac/hid.c
         )
@@ -532,21 +522,21 @@ add_library(
 target_link_libraries(
     Forge
     PUBLIC
+        $<$<PLATFORM_ID:Darwin>:${APPKIT_LIBRARY}>
+        $<$<PLATFORM_ID:Darwin>:${GAMECONTROLLER_LIBRARY}>
+        $<$<PLATFORM_ID:Darwin>:${IOKIT_LIBRARY}>
+        $<$<PLATFORM_ID:Darwin>:${METAL_LIBRARY}>
+        $<$<PLATFORM_ID:Darwin>:${MPS_LIBRARY}>
+        $<$<PLATFORM_ID:Darwin>:${QUARTZCORE_LIBRARY}>
+        $<$<PLATFORM_ID:Linux>:${GTK3_LIBRARIES}>
         $<$<PLATFORM_ID:Linux>:${LIBUDEV_LIBRARIES}>
         $<$<PLATFORM_ID:Linux>:${X11_LIBRARIES}>
-        $<$<PLATFORM_ID:Linux>:${GTK3_LIBRARIES}>
         $<$<PLATFORM_ID:Linux>:${XRANDR_LIBRARIES}>
-        $<$<PLATFORM_ID:Darwin>:${IOKIT_LIBRARY}>
-        $<$<PLATFORM_ID:Darwin>:${APPKIT_LIBRARY}>
-        $<$<PLATFORM_ID:Darwin>:${METAL_LIBRARY}>
-        $<$<PLATFORM_ID:Darwin>:${QUARTZCORE_LIBRARY}>
-        $<$<PLATFORM_ID:Darwin>:${GAMECONTROLLER_LIBRARY}>
-        $<$<PLATFORM_ID:Darwin>:${MPS_LIBRARY}>
-        $<$<PLATFORM_ID:Windows>:Xinput>
-        $<$<PLATFORM_ID:Windows>:${CMAKE_CURRENT_SOURCE_DIR}/Common_3/OS/ThirdParty/OpenSource/winpixeventruntime/bin/WinPixEventRuntime.lib>
-        $<$<PLATFORM_ID:Windows>:${CMAKE_CURRENT_SOURCE_DIR}/Common_3/Graphics/ThirdParty/OpenSource/DirectXShaderCompiler/lib/x64/dxcompiler.lib>
         $<$<PLATFORM_ID:Windows>:${CMAKE_CURRENT_SOURCE_DIR}/Common_3/Graphics/ThirdParty/OpenSource/ags/ags_lib/lib/amd_ags_x64.lib>
+        $<$<PLATFORM_ID:Windows>:${CMAKE_CURRENT_SOURCE_DIR}/Common_3/Graphics/ThirdParty/OpenSource/DirectXShaderCompiler/lib/x64/dxcompiler.lib>
         $<$<PLATFORM_ID:Windows>:${CMAKE_CURRENT_SOURCE_DIR}/Common_3/Graphics/ThirdParty/OpenSource/nvapi/amd64/nvapi64.lib>
+        $<$<PLATFORM_ID:Windows>:${CMAKE_CURRENT_SOURCE_DIR}/Common_3/OS/ThirdParty/OpenSource/winpixeventruntime/bin/WinPixEventRuntime.lib>
+        $<$<PLATFORM_ID:Windows>:Xinput>
 )
 
 target_include_directories(
