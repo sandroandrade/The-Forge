@@ -9,7 +9,7 @@ add_custom_command(
     POST_BUILD
     COMMAND
         ${CMAKE_COMMAND} -E copy_directory
-        ${CMAKE_SOURCE_DIR}/Examples_3/Unit_Tests/UnitTestResources/Textures/dds/input/
+        ${CMAKE_SOURCE_DIR}/Art/UnitTestResources/Textures/dds/input/
         ${resources_dir}/Textures/
     COMMENT "Copying textures..."
 )

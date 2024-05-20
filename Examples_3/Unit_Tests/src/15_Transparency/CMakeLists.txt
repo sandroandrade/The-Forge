@@ -9,11 +9,11 @@ add_custom_command(
     POST_BUILD
     COMMAND
         ${CMAKE_COMMAND} -E copy_directory
-        ${CMAKE_SOURCE_DIR}/Examples_3/Unit_Tests/UnitTestResources/Textures/dds/skybox/
+        ${CMAKE_SOURCE_DIR}/Art/UnitTestResources/Textures/dds/skybox/
         ${resources_dir}/Textures/skybox/
     COMMAND
         ${CMAKE_COMMAND} -E copy
-        ${CMAKE_SOURCE_DIR}/Examples_3/Unit_Tests/UnitTestResources/Textures/dds/grid.tex
+        ${CMAKE_SOURCE_DIR}/Art/UnitTestResources/Textures/dds/grid.tex
         ${resources_dir}/Textures/
     COMMENT "Copying textures..."
 )
@@ -23,6 +23,6 @@ add_custom_command(
     TARGET 15_Transparency
     POST_BUILD
     COMMAND ${CMAKE_COMMAND} -E copy_directory
-            ${CMAKE_SOURCE_DIR}/Examples_3/Unit_Tests/UnitTestResources/Meshes/ ${resources_dir}/Meshes/
+            ${CMAKE_SOURCE_DIR}/Art/UnitTestResources/Meshes/ ${resources_dir}/Meshes/
     COMMENT "Copying meshes..."
 )

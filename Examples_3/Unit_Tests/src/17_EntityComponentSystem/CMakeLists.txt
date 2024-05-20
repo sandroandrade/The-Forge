@@ -10,7 +10,7 @@ add_custom_command(
     COMMAND ${CMAKE_COMMAND} -E make_directory "${resources_dir}/Textures/"
     COMMAND
         ${CMAKE_COMMAND} -E copy
-        ${CMAKE_SOURCE_DIR}/Examples_3/Unit_Tests/UnitTestResources/Textures/dds/sprites.tex
+        ${CMAKE_SOURCE_DIR}/Art/UnitTestResources/Textures/dds/sprites.tex
         ${resources_dir}/Textures/
     COMMENT "Copying textures..."
 )

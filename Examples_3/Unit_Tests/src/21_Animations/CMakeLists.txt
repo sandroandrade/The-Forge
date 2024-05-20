@@ -8,6 +8,6 @@ add_custom_command(
     TARGET 21_Animations
     POST_BUILD
     COMMAND ${CMAKE_COMMAND} -E copy_directory
-            ${CMAKE_SOURCE_DIR}/Examples_3/Unit_Tests/UnitTestResources/Animation/ ${resources_dir}/Animation/
+            ${CMAKE_SOURCE_DIR}/Art/UnitTestResources/Animation/ ${resources_dir}/Animation/
     COMMENT "Copying animations..."
 )

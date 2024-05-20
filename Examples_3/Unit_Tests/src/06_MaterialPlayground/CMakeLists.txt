@@ -10,7 +10,7 @@ add_custom_command(
     COMMAND ${CMAKE_COMMAND} -E copy_directory ${CMAKE_SOURCE_DIR}/Art/PBR/dds/ ${resources_dir}/Textures/PBR/
     COMMAND
         ${CMAKE_COMMAND} -E copy
-        ${CMAKE_SOURCE_DIR}/Examples_3/Unit_Tests/UnitTestResources/Textures/dds/LA_Helipad3D.tex
+        ${CMAKE_SOURCE_DIR}/Art/UnitTestResources/Textures/dds/LA_Helipad3D.tex
         ${resources_dir}/Textures/
     COMMENT "Copying textures..."
 )
@@ -20,9 +20,9 @@ add_custom_command(
     TARGET 06_MaterialPlayground
     POST_BUILD
     COMMAND ${CMAKE_COMMAND} -E copy_directory
-            ${CMAKE_SOURCE_DIR}/Examples_3/Unit_Tests/UnitTestResources/Meshes/ ${resources_dir}/Meshes/
+            ${CMAKE_SOURCE_DIR}/Art/UnitTestResources/Meshes/ ${resources_dir}/Meshes/
     COMMAND ${CMAKE_COMMAND} -E copy_directory
-            ${CMAKE_SOURCE_DIR}/Examples_3/Unit_Tests/UnitTestResources/Hair/ ${resources_dir}/Meshes/Hair/
+            ${CMAKE_SOURCE_DIR}/Art/UnitTestResources/Hair/ ${resources_dir}/Meshes/Hair/
     COMMENT "Copying meshes..."
 )
 
@@ -31,7 +31,7 @@ add_custom_command(
     TARGET 06_MaterialPlayground
     POST_BUILD
     COMMAND ${CMAKE_COMMAND} -E copy_directory
-            ${CMAKE_SOURCE_DIR}/Examples_3/Unit_Tests/UnitTestResources/Animation/ ${resources_dir}/Animation/
+            ${CMAKE_SOURCE_DIR}/Art/UnitTestResources/Animation/ ${resources_dir}/Animation/
     COMMENT "Copying animations..."
 )
 

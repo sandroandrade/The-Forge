@@ -180,7 +180,7 @@ function(tf_add_unit_test unit_test_name)
         TARGET ${unit_test_name}
         POST_BUILD
         COMMAND ${CMAKE_COMMAND} -E copy_directory
-                ${CMAKE_SOURCE_DIR}/Examples_3/Unit_Tests/UnitTestResources/Fonts ${resources_dir}/Fonts
+                ${CMAKE_SOURCE_DIR}/Art/UnitTestResources/Fonts ${resources_dir}/Fonts
         COMMENT "Copying fonts..."
     )
 
@@ -189,7 +189,7 @@ function(tf_add_unit_test unit_test_name)
         TARGET ${unit_test_name}
         POST_BUILD
         COMMAND ${CMAKE_COMMAND} -E copy_directory
-                ${CMAKE_SOURCE_DIR}/Examples_3/Unit_Tests/UnitTestResources/Scripts ${resources_dir}/Scripts
+                ${CMAKE_SOURCE_DIR}/Art/UnitTestResources/Scripts ${resources_dir}/Scripts
         COMMENT "Copying scripts..."
     )
     if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/Scripts")
